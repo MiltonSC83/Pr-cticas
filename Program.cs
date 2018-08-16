@@ -4,41 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mascota
+namespace tecnologia
 {
     class Program
     {
-        enum TIPOSDECOMIDA { CROQUETAS, BASURA, AGUA}
+        enum TIPOSDECONEXION {AUXILIAR, CARGADOR}
         static void Main(string[] args)
         {
-            bool alimentado = false;
+            bool cargado = false;
 
-            Prro Prro1 = new Prro();
+            Celular Celular1 = new Celular();
 
-            Prro1.Raza = "French Puddle";
-            Prro1.Peso = 7;
-            Prro1.Sexo = "Macho";
-            Prro1.Tamaño = "Pequeño";
+            Celular1.Gama = "Media";
+            Celular1.Marca = "Motorola";
+            Celular1.Color = "Gris";
+            Celular1.Memoria = 32;
+            Celular1.TamañoPantalla = 5;
 
-            alimentado = Prro1.Comer((int)TIPOSDECOMIDA.BASURA);
+            cargado = Celular1.Cargar((int)TIPOSDECONEXION.CARGADOR);
 
-            if (alimentado)
+            if(cargado)
             {
-                Console.WriteLine("El perro" + Prro1.Raza + "comió" + Convert.ToString(TIPOSDECOMIDA.AGUA));
+                Console.WriteLine("El celular " + Celular1.Marca + " ha sido conectado a " + Convert.ToString(TIPOSDECONEXION.CARGADOR));
             }
             else
             {
-                Console.WriteLine("El perro no ha comido xd");
+                Console.WriteLine("El celular " + Celular1.Marca + " NO HA SIDO CARGADO");
             }
-             
 
-            Prro Prro2 = new Prro();
-            Console.WriteLine("El perro" + Prro2.Raza + "comió" + Convert.ToString(TIPOSDECOMIDA.AGUA));
-
-            Prro Prro3 = new Prro("ShiTzu", 6, "Hembra", "pequeño");
-            Console.WriteLine("El perro" + Prro3.Raza + "comió" + Convert.ToString(TIPOSDECOMIDA.AGUA));
+            Celular Celular2 = new Celular();
+            Console.WriteLine("El celular " + Celular2.Marca + " ha sido conectado a " + Convert.ToString(TIPOSDECONEXION.AUXILIAR));
 
             Console.Read();
+
         }
     }
 }
