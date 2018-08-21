@@ -4,38 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tecnologia
+namespace Practica2
 {
     class Program
     {
-        enum TIPOSDECONEXION {AUXILIAR, CARGADOR}
         static void Main(string[] args)
         {
-            bool cargado = false;
+            Compra Cliente;
+            Cliente = new Compra();
+            Cliente.Nombre = "Margarita";
+            Cliente.Edad = 19;
+            Cliente.Sexo = "Femenino";
+            Cliente.MarcaDeCalzado = "Zara";
+            Cliente.NumeroCalzado = 5.5;
+            Cliente.PrecioCalzado = 995;
 
-            Celular Celular1 = new Celular();
+            Console.WriteLine(Cliente.Nombre + " de " + Cliente.Edad + " años, de sexo " +Cliente.Sexo);
+            Console.WriteLine("Ordenó calzado " + Cliente.MarcaDeCalzado + " de tamaño " + Cliente.NumeroCalzado);
+            Console.WriteLine("Con un precio de " + Cliente.PrecioCalzado + " pesos. ");
+            Console.ReadKey();
 
-            Celular1.Gama = "Media";
-            Celular1.Marca = "Motorola";
-            Celular1.Color = "Gris";
-            Celular1.Memoria = 32;
-            Celular1.TamañoPantalla = 5;
-
-            cargado = Celular1.Cargar((int)TIPOSDECONEXION.CARGADOR);
-
-            if(cargado)
-            {
-                Console.WriteLine("El celular " + Celular1.Marca + " ha sido conectado a " + Convert.ToString(TIPOSDECONEXION.CARGADOR));
-            }
-            else
-            {
-                Console.WriteLine("El celular " + Celular1.Marca + " NO HA SIDO CARGADO");
-            }
-
-            Celular Celular2 = new Celular();
-            Console.WriteLine("El celular " + Celular2.Marca + " ha sido conectado a " + Convert.ToString(TIPOSDECONEXION.AUXILIAR));
-
-            Console.Read();
 
         }
     }
