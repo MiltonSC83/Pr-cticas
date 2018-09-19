@@ -45,10 +45,15 @@ namespace Arreglos
 
             NombreList.Add("Alejandro");
             NombreList.Add("Erick");
+            NombreList.Add("Milton");
             Apellido.Add("Perez");
             Apellido.Add("Contreras");
+            Apellido.Add("Sosa");
             NumeroList.Add("12345");
             NumeroList.Add("67890");
+            NumeroList.Add("314308067");
+
+            NombreList.Remove("Milton");
 
             Listanombres.Add(NombreList);
             Listanombres.Add(Apellido);
@@ -60,7 +65,7 @@ namespace Arreglos
             dataGridView3.Columns[1].Name = "Apellido materno";
             dataGridView3.Columns[2].Name = "Nombres";
             dataGridView3.Columns[3].Name = "Numero de cuenta";
-            
+            /*Listanombres.Count*/
             for (i = 0; i < Listanombres.Count; i++)
             {
                 dataGridView3.Rows.Add();
@@ -118,6 +123,48 @@ namespace Arreglos
                 }
 
             }
+
+            Queue<string> QueueNombre = new Queue<string>();            Queue<string> QueueApellidos = new Queue<string>();            Queue<string> QueueNumeroDeCuenta = new Queue<string>();            Queue<Queue<string>> QueueNombreCompleto = new Queue<Queue<string>>();
+            
+
+            QueueNombre.Enqueue("JESUS ALEJANDRO");            QueueNombre.Enqueue("ERICK IVAN");            QueueNombre.Enqueue("LUIS ANTONIO");            QueueNombre.Enqueue("SEBASTIAN ALDAIR");            QueueNombre.Enqueue("LUIS ARMANDO");            QueueNombre.Enqueue("MILTON OSMAR");            QueueNombre.Enqueue("Armando");
+
+            QueueApellidos.Enqueue("ARZATE");            QueueApellidos.Enqueue("BARCENAS");            QueueApellidos.Enqueue("LAGUNA2");            QueueApellidos.Enqueue("MARTINEZ");            QueueApellidos.Enqueue("SANCHEZ");            QueueApellidos.Enqueue("SOSA");            QueueApellidos.Enqueue("Uribe");
+
+            QueueNumeroDeCuenta.Enqueue("1");
+            QueueNumeroDeCuenta.Enqueue("2");
+            QueueNumeroDeCuenta.Enqueue("3");
+            QueueNumeroDeCuenta.Enqueue("4");
+            QueueNumeroDeCuenta.Enqueue("5");
+            QueueNumeroDeCuenta.Enqueue("6");
+            QueueNumeroDeCuenta.Enqueue("7");
+
+            QueueNombreCompleto.Enqueue(QueueNombre);            QueueNombreCompleto.Enqueue(QueueApellidos);
+            QueueNombreCompleto.Enqueue(QueueNumeroDeCuenta);
+
+            dataGridView4.ColumnCount = 3;            dataGridView4.Columns[0].Name = "Apellido Paterno";            dataGridView4.Columns[1].Name = "Nombre";
+            dataGridView4.Columns[2].Name = "Numero de cuenta";
+
+            for (int contadorFilas = 0; contadorFilas < 7; contadorFilas++)            {
+                Boolean flag1 = true;
+                dataGridView4.Rows.Add();
+                for (int contadorCol = 0; contadorCol < 2; contadorCol++)
+                {
+                    if (flag1)
+                    {
+                        dataGridView4.Rows[contadorFilas].Cells[contadorCol].Value = QueueApellidos.Peek();
+                        QueueApellidos.Dequeue();
+                        flag1 = false;
+                        
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[contadorFilas].Cells[contadorCol].Value = QueueNombre.Peek();
+                        QueueNombre.Dequeue();
+                        flag1 = true;
+                    }
+                }                    
+                            }
 
         }    
 
