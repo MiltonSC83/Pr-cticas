@@ -54,37 +54,24 @@ namespace Arreglos
             Listanombres.Add(Apellido);
             Listanombres.Add(NumeroList);
 
-            dataGridView3.Rows.Add(NombreList);
-            dataGridView3.Rows.Add(Apellido);
-            dataGridView3.Rows.Add(NumeroList);
 
-
-            for (i = 0; i < 7; i++)
+            dataGridView3.ColumnCount = 4;
+            dataGridView3.Columns[0].Name = "Apellido paterno";
+            dataGridView3.Columns[1].Name = "Apellido materno";
+            dataGridView3.Columns[2].Name = "Nombres";
+            dataGridView3.Columns[3].Name = "Numero de cuenta";
+            
+            for (i = 0; i < Listanombres.Count; i++)
             {
                 dataGridView3.Rows.Add();
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 2; j++)
                 {
-                    dataGridView3.Rows[i].Cells[j].Value = Listanombres;
+                    dataGridView3.Rows[i].Cells[j].Value = Listanombres[i][j];
                 }
 
             }
+            
 
-
-
-            for (i = 0; i < arreglo2.Length; i++)
-            {
-                listBox1.Items.Add(arreglo2[i]);
-                for (int j = 0; j < arreglo3.Length; j++)
-                {
-
-                    if (arreglo2[i] == arreglo3[j])
-                    {
-                        listBox2.Items.Add("El nombre " + arreglo2[i] + " se repite");
-                    }
-
-                }
-            }
-            string name = "";
             string[,] NombreCompletoArray = new string[7, 4] { { "ARZATE", "GOMEZ", "JESUS ALEJANDRO", "314168126" }, { "BARCENAS", "MARTINEZ", "ERICK IVAN", "417092331" }, { "LAGUNA", "LOPEZ", "LUIS ANTONIO", "313067136" }, { "MARTINEZ", "ANDRADE", "SEBASTIAN ALDAIR", "313041578" }, { "SANCHEZ", "RUIZ", "LUIS ARMANDO", "305303965" }, { "SOSA", "CORONA", "MILTON OSMAR", "314308067" }, { "URIBE", "SERRALDE", "ARMANDO", "314104326" } };
 
             dataGridView1.ColumnCount = 4;
@@ -92,17 +79,6 @@ namespace Arreglos
             dataGridView1.Columns[1].Name = "Apellido materno";
             dataGridView1.Columns[2].Name = "Nombres";
             dataGridView1.Columns[3].Name = "Numero de cuenta";
-
-            
-            for (i = 0; i < 7; i++)
-            {
-                dataGridView1.Rows.Add();
-                for (int j = 0; j < 4; j++)
-                {
-                    dataGridView1.Rows[i].Cells[j].Value = NombreCompletoArray[i, j];
-                }
-
-            }
 
             string[][] NombreCompletoJArray = new string[7][];
 
@@ -113,6 +89,18 @@ namespace Arreglos
             NombreCompletoJArray[4] = new string[] { "SANCHEZ", "RUIZ", "LUIS ARMANDO", "305303965" };
             NombreCompletoJArray[5] = new string[] { "SOSA", "CORONA", "MILTON OSMAR", "314308067" };
             NombreCompletoJArray[6] = new string[] { "URIBE", "SERRALDE", "ARMANDO", "314104326" };
+
+            for (i = 0; i < 7; i++)
+            {
+                dataGridView1.Rows.Add();
+                for (int j = 0; j < 4; j++)
+                {
+                    dataGridView1.Rows[i].Cells[j].Value = NombreCompletoArray[i, j];
+                }
+
+            }
+
+           
 
             dataGridView2.ColumnCount = 4;
             dataGridView2.Columns[0].Name = "Apellido Materno";
